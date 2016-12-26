@@ -3,10 +3,11 @@ require 'open-uri'
 
 url = 'http://www.ndhealth.gov/ehs/foia/spills/'
 
-data = Nokogiri::HTML(open(url))
+keys = Nokogiri::HTML(open(url))
 
-puts data
-
+keys.xpath("//tr//th").each do |key|
+  puts key.text
+end
 
 
 
